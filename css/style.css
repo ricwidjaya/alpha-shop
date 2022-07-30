@@ -1,0 +1,36 @@
+.container {
+  padding: 0 20px;
+}
+
+/* Navbar */
+.nav {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas: "nav-links nav-links logo nav-icon nav-icon";
+  height: 50px;
+}
+
+.nav__left {
+  grid-area: nav-links;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav__logo {
+  grid-area: logo;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav__right {
+  grid-area: nav-icon;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.nav__left__link {
+
+}
