@@ -1,6 +1,7 @@
 // Import Noto Sans TC 思源黑體
 $font-stacks: 'Noto Sans', sans-serif;
 $regular-font-size: 16px;
+$primary-color: #000;
 
 // inheritance
 @mixin flex($justify-content) {
@@ -15,37 +16,90 @@ body {
   font-size: $regular-font-size;
 }
 
+// Mobile
 .container {
-  padding: 0 165px;
+  position: relative;
+  padding: 32px 15px;
+  @include flex(center);
 }
 
-/* Navbar */
-.nav {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-areas: 'nav-links nav-links logo space nav-icon';
-  height: 50px;
+.nav__left,
+.nav__right {
+  display: none;
 }
 
-.nav__left {
-  grid-area: nav-links;
-  @include flex(start);
-  gap: 32px;
+@mixin burger-line($width) {
+  width: $width;
+  height: 3px;
+  background-color: $primary-color;
+}
+
+.navbar__toogle {
+  position: absolute;
+  top: 30px;
+  left: 15px;
+}
+
+.navbar__toogle--hamburger {
+  position: relative;
+  @include burger-line(17px);
+}
+
+.navbar__toogle--hamburger::before {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  @include burger-line(20px);
+}
+
+.navbar__toogle--hamburger::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  @include burger-line(12px);
 }
 
 .nav__logo {
-  grid-area: logo;
-  height: 30px;
-  margin: auto;
-}
-
-.nav__right {
-  grid-area: nav-icon;
-  @include flex(end);
-  gap: 30px;
-}
-
-.nav__right__icon {
-  width: 24px;
   height: 24px;
+}
+
+@media screen and (min-width: 375px) {
+  .container {
+    padding: 0 165px;
+  }
+
+  /* Navbar */
+  .nav {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-areas: 'nav-links nav-links logo space nav-icon';
+    height: 50px;
+  }
+
+  .navbar__toogle {
+    display: none;
+  }
+
+  .nav__left {
+    grid-area: nav-links;
+    @include flex(start);
+    gap: 32px;
+  }
+
+  .nav__logo {
+    grid-area: logo;
+    height: 30px;
+    margin: auto;
+  }
+
+  .nav__right {
+    grid-area: nav-icon;
+    @include flex(end);
+    gap: 30px;
+  }
+
+  .nav__right__icon {
+    width: 24px;
+    height: 24px;
+  }
 }
