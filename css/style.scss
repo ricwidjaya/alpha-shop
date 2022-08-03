@@ -1,13 +1,25 @@
-// Import Noto Sans TC 思源黑體
+// Font
 $font-stacks: 'Noto Sans', sans-serif;
 $regular-font-size: 16px;
+$desktop-title-size: 32px;
+$desktop-subtitle-size: 24px;
+$mobile-title-size: 24px;
+// color
 $primary-color: #000;
+// margin & padding
+$desktop-padding: 0 165px;
 
 // inheritance
 @mixin flex($justify-content) {
   display: flex;
   align-items: center;
   justify-content: $justify-content;
+}
+
+@mixin burger-line($width) {
+  width: $width;
+  height: 3px;
+  background-color: $primary-color;
 }
 
 *,
@@ -17,42 +29,41 @@ body {
 }
 
 // Mobile
+body {
+  padding: 0 15px;
+}
+
 .container {
   position: relative;
   padding: 32px 15px;
   @include flex(center);
 }
 
+// Mobile Navbar
 .nav__left,
 .nav__right {
   display: none;
 }
 
-@mixin burger-line($width) {
-  width: $width;
-  height: 3px;
-  background-color: $primary-color;
-}
-
-.navbar__toogle {
+.navbar__toggle {
   position: absolute;
   top: 30px;
   left: 15px;
 }
 
-.navbar__toogle--hamburger {
+.navbar__toggle--hamburger {
   position: relative;
   @include burger-line(17px);
 }
 
-.navbar__toogle--hamburger::before {
+.navbar__toggle--hamburger::before {
   content: '';
   position: absolute;
   bottom: 6px;
   @include burger-line(20px);
 }
 
-.navbar__toogle--hamburger::after {
+.navbar__toggle--hamburger::after {
   content: '';
   position: absolute;
   top: 6px;
@@ -63,12 +74,18 @@ body {
   height: 24px;
 }
 
+.title {
+  margin: 16px 0 24px 0;
+  font-size: $mobile-title-size;
+  font-weight: bold;
+}
+
 @media screen and (min-width: 375px) {
   .container {
-    padding: 0 165px;
+    padding: $desktop-padding;
   }
 
-  /* Navbar */
+  // Navbar
   .nav {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -76,7 +93,7 @@ body {
     height: 50px;
   }
 
-  .navbar__toogle {
+  .navbar__toggle {
     display: none;
   }
 
@@ -101,5 +118,11 @@ body {
   .nav__right__icon {
     width: 24px;
     height: 24px;
+  }
+
+  // Header
+  .title {
+    margin: 80px 0 48px 0;
+    padding: $desktop-padding;
   }
 }
