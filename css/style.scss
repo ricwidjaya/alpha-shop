@@ -1,0 +1,51 @@
+// Import Noto Sans TC 思源黑體
+$font-stacks: 'Noto Sans', sans-serif;
+$regular-font-size: 16px;
+
+// inheritance
+@mixin flex($justify-content) {
+  display: flex;
+  align-items: center;
+  justify-content: $justify-content;
+}
+
+*,
+body {
+  font-family: $font-stacks;
+  font-size: $regular-font-size;
+}
+
+.container {
+  padding: 0 165px;
+}
+
+/* Navbar */
+.nav {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas: 'nav-links nav-links logo space nav-icon';
+  height: 50px;
+}
+
+.nav__left {
+  grid-area: nav-links;
+  @include flex(start);
+  gap: 32px;
+}
+
+.nav__logo {
+  grid-area: logo;
+  height: 30px;
+  margin: auto;
+}
+
+.nav__right {
+  grid-area: nav-icon;
+  @include flex(end);
+  gap: 30px;
+}
+
+.nav__right__icon {
+  width: 24px;
+  height: 24px;
+}

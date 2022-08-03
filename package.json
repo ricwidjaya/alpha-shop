@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/ricwidjaya/alpha-shop#readme",
   "dependencies": {
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "sass": "^1.54.1"
   }
 }

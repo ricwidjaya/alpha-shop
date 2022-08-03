@@ -1,12 +1,18 @@
+*,
+body {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 16px;
+}
+
 .container {
-  padding: 0 20px;
+  padding: 0 165px;
 }
 
 /* Navbar */
 .nav {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-areas: "nav-links nav-links logo nav-icon nav-icon";
+  grid-template-areas: "nav-links nav-links logo space nav-icon";
   height: 50px;
 }
 
@@ -14,14 +20,14 @@
   grid-area: nav-links;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
+  gap: 32px;
 }
 
 .nav__logo {
   grid-area: logo;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 30px;
+  margin: auto;
 }
 
 .nav__right {
@@ -29,8 +35,12 @@
   display: flex;
   align-items: center;
   justify-content: end;
+  gap: 30px;
 }
 
-.nav__left__link {
-
+.nav__right__icon {
+  width: 24px;
+  height: 24px;
 }
+
+/*# sourceMappingURL=style.css.map */
